@@ -1,4 +1,4 @@
-require_relative './model/link'
+require_relative '../models/link'
 
 class ShortensUrl
 	def shorten(base_url, full_url)

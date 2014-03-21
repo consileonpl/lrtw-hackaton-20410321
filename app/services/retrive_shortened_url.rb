@@ -1,4 +1,4 @@
-require_relative './model/link'
+require_relative '../models/link'
 
 class RetriveShortenedUrl
 	def retrive(shortened_url)
