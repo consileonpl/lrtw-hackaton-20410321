@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative './shortens_url'
+require_relative './retrive_shortened_url'
 require 'sinatra/json'
 require 'mongoid'
 
