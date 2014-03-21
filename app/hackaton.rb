@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative './shortens_url'
+require 'sinatra/json'
 require 'pry'
 
 get '/' do

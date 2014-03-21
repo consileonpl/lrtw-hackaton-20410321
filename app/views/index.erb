@@ -1,0 +1,15 @@
+<html>
+  <head>
+  </head>
+  <body>
+  <p>Skracacz linkow</p>
+  <form method='post'>
+    <label for='url'>Podaj linka:</label>
+    <input type="text" name="url"><br>
+  </form>
+
+  <% if @shortened_url %>
+    <p>Skrócony URL: <%= @shortened_url %></p>
+  <% end %>
+  </body>
+</html>
