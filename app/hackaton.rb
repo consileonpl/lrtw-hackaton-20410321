@@ -1,6 +1,11 @@
 require 'sinatra'
 require_relative './shortens_url'
 require 'sinatra/json'
+require 'mongoid'
+
+require_relative './models/link'
+
+Mongoid.load!('config/mongoid.yml')
 
 get '/' do
   @errors = params[:errors]
