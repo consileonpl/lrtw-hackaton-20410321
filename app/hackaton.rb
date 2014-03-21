@@ -1,9 +1,11 @@
 require 'sinatra'
 require_relative './shortens_url'
+require_relative './retrive_shortened_url'
 require 'sinatra/json'
 
-get '/' do
-  'Hello world!'
+get '/:short_url' do
+	retrive_shortened_url_service = RetriveShortenedUrl.new
+	retrive_shortened_url_service.retrive (params[:short_url])
 end
 
 post '/' do
