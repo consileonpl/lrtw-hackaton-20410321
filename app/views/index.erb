@@ -9,7 +9,7 @@
   </form>
 
   <% if @shortened_url %>
-    <p>Skrócony URL: <%= @shortened_url %></p>
+    <p>Skrócony URL: <a href="<%= @shortened_url %>"><%=@shortened_url%></a></p>
   <% end %>
 
   <% if @errors %>
