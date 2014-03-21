@@ -3,22 +3,14 @@ require_relative './shortens_url'
 require 'sinatra/json'
 require 'mongoid'
 
-require_relative './models/link'
-
-Mongoid.load!('config/mongoid.yml')
-
-get '/' do
-  @errors = params[:errors]
-  @shortened_url = params[:shortened_url]
-  erb :index
+get '/:short_url' do
+	retrive_shortened_url_service = RetriveShortenedUrl.new
+	absolute_url = retrive_shortened_url_service.retrive (params[:short_url])
+	redirect absolute_url
 end
 
 post '/' do
-  shortens_url_service = ShortensUrl.new
-  shortened_url = shortens_url_service.shorten(params[:url])
-  if shortened_url.nil?
-    redirect to("/?errors=true")
-  else
-    redirect to("/?shortened_url=#{shortened_url}")
-  end
+	shortens_url_service = ShortensUrl.new
+	shortend_url = shortens_url_service.shorten(request.base_url, params[:url])
+	json shortend_url: shortend_url
 end
