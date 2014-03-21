@@ -3,6 +3,8 @@ require_relative './shortens_url'
 require_relative './retrive_shortened_url'
 require 'sinatra/json'
 require 'mongoid'
+Mongoid.load!("../config/mongoid.yml")
+
 
 get '/:short_url' do
 	retrive_shortened_url_service = RetriveShortenedUrl.new
