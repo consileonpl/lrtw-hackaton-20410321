@@ -1,5 +1,5 @@
 class RetriveShortenedUrl
 	def retrive(shortened_url)
-		"test"
+		"https://google.pl"
 	end
 end

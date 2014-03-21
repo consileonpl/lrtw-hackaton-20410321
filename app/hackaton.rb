@@ -5,7 +5,8 @@ require 'sinatra/json'
 
 get '/:short_url' do
 	retrive_shortened_url_service = RetriveShortenedUrl.new
-	retrive_shortened_url_service.retrive (params[:short_url])
+	absolute_url = retrive_shortened_url_service.retrive (params[:short_url])
+	redirect absolute_url
 end
 
 post '/' do
