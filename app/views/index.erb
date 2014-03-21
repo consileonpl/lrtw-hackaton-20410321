@@ -11,5 +11,9 @@
   <% if @shortened_url %>
     <p>Skrócony URL: <%= @shortened_url %></p>
   <% end %>
+
+  <% if @errors %>
+    <p> Błąd: <%= @errors %></p>
+  <% end %>
   </body>
 </html>

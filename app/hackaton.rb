@@ -3,11 +3,17 @@ require_relative './shortens_url'
 require 'sinatra/json'
 
 get '/' do
-  'Hello world!'
+  @errors = params[:errors]
+  @shortened_url = params[:shortened_url]
+  erb :index
 end
 
 post '/' do
-	shortens_url_service = ShortensUrl.new
-	shorten_url = shortens_url_service.shorten(params[:url])
-	json shortend_url: shorten_url
+  shortens_url_service = ShortensUrl.new
+  shortened_url = shortens_url_service.shorten(params[:url])
+  if shortened_url.nil?
+    redirect to("/?errors=true")
+  else
+    redirect to("/?shortened_url=#{shortened_url}")
+  end
 end
