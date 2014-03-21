@@ -8,6 +8,6 @@ end
 
 post '/' do
 	shortens_url_service = ShortensUrl.new
-	shorten_url = shortens_url_service.shorten(params[:url])
-	json shortend_url: shorten_url
+	shortend_url = shortens_url_service.shorten(request.base_url, params[:url])
+	json shortend_url: shortend_url
 end
